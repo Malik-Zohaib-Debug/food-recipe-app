@@ -4,10 +4,10 @@ import './style.css';
 const Meal = () => {
     const[search,setSearch]=useState("");
     const[Mymeal,setMeal]=useState();
-    const searchMeal=(evt)=>{
+    const searchMeal= async (evt)=>{
         if(evt.key=="Enter")
         {
-            fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>res.json()).then(data=> {setMeal(data.meals);setSearch("")})
+            await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`).then(res=>res.json()).then(data=> {setMeal(data.meals);setSearch("")})
         }
     }
     return (
